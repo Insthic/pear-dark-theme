@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.zip
+*.log
+config.json
+config.*.json
+pear-dark-backups/
+Session Storage/
+Local Storage/
+Cookies*
+*.before-*.css
+*.png
+*.jpg
+.DS_Store

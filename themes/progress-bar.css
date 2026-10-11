@@ -1,0 +1,60 @@
+/* Barra de progreso cómoda para el minirreproductor actual de YouTube Music.
+ * Conserva el degradado de progreso y el control nativo de reproducción.
+ */
+ytmusic-miniplayer .ytMusicMiniPlayerProgressBarWrapper {
+  height: 28px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  z-index: 20 !important;
+}
+
+ytmusic-miniplayer input.ytMusicMiniPlayerProgressBar {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  height: 28px !important;
+  min-height: 28px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  cursor: pointer !important;
+  background-size: 100% 8px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+ytmusic-miniplayer input.ytMusicMiniPlayerProgressBar::-webkit-slider-runnable-track {
+  height: 8px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+}
+
+ytmusic-miniplayer input.ytMusicMiniPlayerProgressBar::-webkit-slider-thumb {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin-top: -4px !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.55) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  cursor: grab !important;
+  transition: none !important;
+}
+
+ytmusic-miniplayer input.ytMusicMiniPlayerProgressBar:active::-webkit-slider-thumb {
+  cursor: grabbing !important;
+}
+
+ytmusic-miniplayer input.ytMusicMiniPlayerProgressBar:focus-visible {
+  outline: 2px solid #ffffff !important;
+  outline-offset: 2px !important;
+}
