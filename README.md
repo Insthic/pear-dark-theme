@@ -1,63 +1,63 @@
 # Pear Dark Theme
 
-Tema personal para [Pear Desktop](https://github.com/pear-devs/pear-desktop), con fondo oscuro uniforme, portadas redondeadas, cola y letras con margen interno, y un reproductor con controles más visibles.
+A custom theme for [Pear Desktop](https://github.com/pear-devs/pear-desktop) with a consistent dark background, rounded album artwork, padding around the queue and lyrics, and clearer playback controls.
 
-La barra de progreso tiene una línea de 8 px, un área de interacción de 28 px y un indicador siempre visible. En Linux, el menú de Pear se integra como un botón de tres puntos en el encabezado de YouTube Music.
+The progress bar has an 8 px track, a 28 px interaction area, and an always-visible thumb. On Linux, Pear's menu appears as a three-dot button in the YouTube Music header.
 
-Este repositorio contiene solamente CSS y un instalador. **Pear Desktop se instala por separado.** No incluye el perfil de una cuenta de Google, cookies, historial, credenciales ni una copia completa de config.json.
+This repository contains only CSS and an installer. **Install Pear Desktop separately.** It does not include a Google account profile, cookies, history, credentials, or a complete copy of config.json.
 
-## Instalación
+## Installation
 
-1. Instalá Pear Desktop y abrilo una vez para crear su configuración.
-2. Cerrá Pear por completo, incluida la bandeja si está habilitada.
-3. Descargá este repositorio como ZIP y extraelo.
-4. Desde la carpeta extraída, ejecutá:
+1. Install Pear Desktop and open it once to create its configuration.
+2. Quit Pear completely, including its tray icon if enabled.
+3. Download this repository as a ZIP file and extract it.
+4. From the extracted directory, run:
 
 ```sh
 python3 install.py
 ```
 
-En Windows, con Python instalado:
+On Windows, with Python installed:
 
 ```powershell
 py install.py
 ```
 
-Podés comprobar el destino antes de instalar:
+You can check the destination before installing:
 
 ```sh
 python3 install.py --dry-run
 ```
 
-Si Pear usa otra ubicación, pasá el directorio que contiene su config.json:
+If Pear uses a different location, specify the directory containing its config.json:
 
 ```sh
-python3 install.py --config-dir "/ruta/al/perfil/YouTube Music"
+python3 install.py --config-dir "/path/to/profile/YouTube Music"
 ```
 
-El instalador copia los CSS, genera rutas locales y conserva los demás ajustes de tu perfil. Desactiva Album Color Theme, Ambient Mode, Blur Navigation Bar, Visualizer y Synced Lyrics para usar una apariencia consistente y las letras nativas de YouTube Music. En Linux, activa únicamente In-App Menu para integrar el menú y quitar la barra de título separada.
+The installer copies the CSS files, generates local paths, and preserves the other settings in your profile. It disables Album Color Theme, Ambient Mode, Blur Navigation Bar, Visualizer, and Synced Lyrics to provide a consistent appearance and use YouTube Music's native lyrics. On Linux, it enables In-App Menu to integrate the menu and remove the separate title bar.
 
-Si ya importaste CSS con los nombres `pear-dark.css` o `progress-bar.css`, reemplaza esas entradas en la lista de temas por las de este paquete. Los otros temas permanecen registrados; pueden cambiar el resultado visual.
+If you have already imported CSS files named `pear-dark.css` or `progress-bar.css`, the installer replaces their entries in the theme list with this package's files. Other themes remain registered and may affect the appearance.
 
-## Compatibilidad
+## Compatibility
 
-Probado visualmente en Pear Desktop 3.12.0 sobre Linux, con ventanas de 936 y 1920 px de ancho. Windows y macOS no se probaron; conservan el comportamiento de los menús de Pear, y la integración del menú de tres puntos se aplica solamente en Linux.
+Visually tested with Pear Desktop 3.12.0 on Linux, at window widths of 936 and 1920 px. Windows and macOS have not been tested; they retain Pear's menu behavior, and the three-dot menu integration applies only on Linux.
 
-El estilo de progreso está pensado para el minirreproductor nuevo de YouTube Music. Una cuenta con otro diseño puede necesitar ajustes. Los cambios de YouTube Music pueden requerir actualizar selectores del tema.
+The progress bar styling targets YouTube Music's newer miniplayer. Accounts using a different layout may need adjustments. Changes to YouTube Music may require updates to the theme's selectors.
 
-Pear aplica el CSS después de cargar la página, por lo que puede verse brevemente la apariencia original al abrirlo. Este paquete no modifica ese mecanismo ni incorpora crossfade o AutoMix.
+Pear applies CSS after the page loads, so its original appearance may briefly be visible at startup. This package does not change that loading behavior or add crossfade or AutoMix.
 
-## Deshacer
+## Undoing the installation
 
-El instalador guarda un respaldo **local**, dentro de `pear-dark-backups` en el directorio del perfil. Con Pear cerrado, copiá el config.json del respaldo que quieras recuperar sobre el config.json del perfil y volvé a abrir Pear. Si reemplazaste una versión anterior del paquete, también se guarda su carpeta de temas.
+The installer saves a **local** backup under `pear-dark-backups` in the profile directory. With Pear closed, restore the backup's config.json over your profile's config.json, then reopen Pear. If you replaced an earlier version of this package, its theme directory is also backed up.
 
-No subas esos respaldos al repositorio: contienen tu configuración personal.
+Do not upload these backups to the repository: they contain your personal configuration.
 
-## Archivos públicos
+## Public files
 
-- `themes/pear-dark.css`: apariencia e integración del menú en Linux.
-- `themes/progress-bar.css`: barra de progreso ampliada.
-- `install.py`: instalador sin dependencias externas ni conexiones de red.
-- `PRIVACY.md`: límites del paquete y datos excluidos.
+- `themes/pear-dark.css`: appearance and menu integration on Linux.
+- `themes/progress-bar.css`: larger progress bar.
+- `install.py`: installer with no external dependencies or network connections.
+- `PRIVACY.md`: package scope and excluded data.
 
-El proyecto no está afiliado a Pear Desktop, YouTube, Google, Spotify ni Tidal.
+This project is not affiliated with Pear Desktop, YouTube, Google, Spotify, or Tidal.
