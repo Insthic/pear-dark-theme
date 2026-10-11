@@ -272,3 +272,60 @@ ytmusic-guide-renderer [tabindex]:focus-visible {
     transition: none;
   }
 }
+
+/* Keep the search border continuous and leave room for its icon buttons. */
+ytmusic-search-box .search-container.style-scope {
+  box-sizing: border-box !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+  min-width: 0 !important;
+}
+ytmusic-search-box .search-box.style-scope {
+  min-width: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: inherit !important;
+}
+ytmusic-search-box input {
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  height: 40px !important;
+  line-height: 24px !important;
+  transform: translateY(2px) !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-right: 56px !important;
+}
+ytmusic-search-box button.yt-icon-button {
+  box-sizing: border-box !important;
+  flex: 0 0 40px !important;
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
+  margin: 0 4px !important;
+  border-radius: 10px !important;
+}
+ytmusic-nav-bar .right-content {
+  margin-left: 20px !important;
+}
+
+ytmusic-search-box {
+  box-sizing: border-box !important;
+  border: 1px solid var(--pear-border) !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  background: var(--pear-raised) !important;
+}
+ytmusic-search-box:focus-within {
+  border-color: var(--pear-accent) !important;
+}
+ytmusic-search-box #container {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
+}
