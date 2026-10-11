@@ -1,6 +1,4 @@
-/* Pear Dark — surfaces, navigation, library and native player.
- * Loaded after progress-bar.css; playback remains handled by YouTube Music.
- */
+/* Load after progress-bar.css. */
 :root,
 html,
 ytmusic-app {
@@ -40,9 +38,7 @@ ytmusic-nav-bar {
   border-bottom: 1px solid var(--pear-border);
   box-sizing: border-box;
 }
-/* In-App Menu supplies a frameless window and the existing menu actions.
- * Its launcher sits in the YTM header instead of reserving another row.
- */
+/* Place In-App Menu in the YTM header on Linux. */
 html[data-os="Linux"] {
   --menu-bar-height: 0px !important;
 }

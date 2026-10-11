@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install the theme into an existing Pear Desktop profile without replacing it."""
+"""Install Pear Dark Theme into an existing Pear Desktop profile."""
 import argparse
 import datetime
 import json
@@ -21,28 +21,28 @@ def default_config_dir():
 def prepare(config_dir):
     config = config_dir / "config.json"
     if not config.is_file():
-        raise ValueError("No se encontró config.json. Abrí Pear una vez y cerralo, o usá --config-dir.")
+        raise ValueError("config.json not found. Open Pear once, then quit it, or use --config-dir.")
     data = json.loads(config.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
-        raise ValueError("La configuración debe ser un objeto JSON.")
+        raise ValueError("The configuration must be a JSON object.")
     for key in ("options", "plugins"):
         if not isinstance(data.setdefault(key, {}), dict):
-            raise ValueError(f"Configuración inválida: {key} debe ser un objeto.")
+            raise ValueError(f"Invalid configuration: {key} must be an object.")
     themes = data["options"].setdefault("themes", [])
     if not isinstance(themes, list) or not all(isinstance(item, str) for item in themes):
-        raise ValueError("Configuración inválida: options.themes debe ser una lista de rutas.")
+        raise ValueError("Invalid configuration: options.themes must be a list of paths.")
     disabled = ("album-color-theme", "ambient-mode", "blur-nav-bar", "synced-lyrics", "visualizer")
     managed = (*disabled, "in-app-menu") if sys.platform.startswith("linux") else disabled
     for plugin in managed:
         if not isinstance(data["plugins"].setdefault(plugin, {}), dict):
-            raise ValueError(f"Configuración inválida del plugin {plugin}.")
+            raise ValueError(f"Invalid configuration: plugins.{plugin} must be an object.")
     destination = config_dir / "themes" / "pear-dark-theme"
     sources = Path(__file__).resolve().parent / "themes"
     names = ("progress-bar.css", "pear-dark.css")
     for name in names:
         if not (sources / name).is_file():
-            raise ValueError(f"Falta el archivo del tema: {name}.")
-    # Remove only older registrations for these filenames; retain unrelated themes.
+            raise ValueError(f"Missing theme file: {name}.")
+    # Replace earlier copies of this theme; keep unrelated entries.
     data["options"]["themes"] = [
         item for item in themes if Path(item.replace("\\", "/")).name not in names
     ] + [str(destination / name) for name in names]
@@ -56,14 +56,14 @@ def prepare(config_dir):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config-dir", type=Path, help="Directorio del perfil de Pear")
-    parser.add_argument("--dry-run", action="store_true", help="Verifica la configuración sin modificar archivos")
+    parser.add_argument("--config-dir", type=Path, help="Pear profile directory")
+    parser.add_argument("--dry-run", action="store_true", help="Check configuration without writing files")
     args = parser.parse_args()
     config_dir = (args.config_dir or default_config_dir()).expanduser().resolve()
     try:
         config, data, sources, destination, names = prepare(config_dir)
         if args.dry_run:
-            print(f"Configuración válida: {config}\nDestino del tema: {destination}\nNo se modificó ningún archivo.")
+            print(f"Configuration: {config}\nTheme directory: {destination}\nDry run: no files changed.")
             return 0
         stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S-%f")
         backup_dir = config_dir / "pear-dark-backups" / stamp
@@ -76,7 +76,7 @@ def main():
         destination.mkdir(parents=True, exist_ok=True)
         for name in names:
             shutil.copyfile(sources / name, destination / name)
-        # Write a private temporary file and atomically replace the configuration.
+        # Replace the configuration atomically using a private temporary file.
         temporary = None
         try:
             with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", dir=config_dir, delete=False) as file:
@@ -87,7 +87,7 @@ def main():
         finally:
             if temporary is not None and temporary.exists():
                 temporary.unlink()
-        print(f"Tema instalado. Abrí Pear.\nRespaldo local: {backup}")
+        print(f"Theme installed. Reopen Pear.\nBackup: {backup}")
         return 0
     except (ValueError, OSError, KeyError) as error:
         print(f"Error: {error}", file=sys.stderr)

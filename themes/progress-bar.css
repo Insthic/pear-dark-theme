@@ -1,6 +1,4 @@
-/* Barra de progreso cómoda para el minirreproductor actual de YouTube Music.
- * Conserva el degradado de progreso y el control nativo de reproducción.
- */
+/* Larger seek bar for the YTM miniplayer. Keep the native progress gradient. */
 ytmusic-miniplayer .ytMusicMiniPlayerProgressBarWrapper {
   height: 28px !important;
   padding: 0 !important;

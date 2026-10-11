@@ -1,11 +1,13 @@
-# Qué se comparte
+# Privacy
 
-Este paquete contiene estilos CSS escritos para Pear Desktop y un script que modifica ajustes concretos del perfil de cada PC.
+The CSS files make no network requests. The installer uses Python's standard library and runs locally.
 
-Los CSS no contienen URLs externas, rutas de usuario, credenciales ni llamadas de red. El instalador usa solamente la biblioteca estándar de Python y no envía datos a servicios externos.
+## Local files
 
-El instalador lee el config.json local, conserva sus campos y guarda una copia de respaldo local antes de modificarlo. Ese archivo y sus respaldos pueden contener información privada y no forman parte de este repositorio.
+The installer reads your Pear profile's `config.json`, backs it up under `pear-dark-backups`, and updates the theme and plugin settings listed in the README. Other settings are preserved.
 
-No se debe publicar la carpeta completa de configuración de Pear: puede incluir cookies, sesión, caché, almacenamiento local, historial y credenciales de plugins. Tampoco deben agregarse capturas de pantalla con datos de la cuenta sin revisarlas primero.
+Your configuration and backups may contain private information. They are not included in this repository.
 
-La revisión de privacidad de este paquete cubre los archivos enumerados en README.md y la documentación, no cualquier archivo que se agregue después.
+## Sharing changes
+
+Commit theme files and source code only. Keep Pear's profile directory, cookies, session data, history, and plugin credentials out of the repository. Check screenshots for account details before uploading them.
