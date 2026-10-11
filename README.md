@@ -1,63 +1,54 @@
 # Pear Dark Theme
 
-A custom theme for [Pear Desktop](https://github.com/pear-devs/pear-desktop) with a consistent dark background, rounded album artwork, padding around the queue and lyrics, and clearer playback controls.
+A dark theme for [Pear Desktop](https://github.com/pear-devs/pear-desktop).
 
-The progress bar has an 8 px track, a 28 px interaction area, and an always-visible thumb. On Linux, Pear's menu appears as a three-dot button in the YouTube Music header.
+- Uniform dark backgrounds and rounded artwork
+- More space around the queue and lyrics
+- Larger seek bar with an always-visible thumb
+- Three-dot app menu in the YouTube Music header on Linux
 
-This repository contains only CSS and an installer. **Install Pear Desktop separately.** It does not include a Google account profile, cookies, history, credentials, or a complete copy of config.json.
+## Install
 
-## Installation
-
-1. Install Pear Desktop and open it once to create its configuration.
-2. Quit Pear completely, including its tray icon if enabled.
-3. Download this repository as a ZIP file and extract it.
-4. From the extracted directory, run:
+Requires Python 3 and an existing Pear installation. Open Pear once to create its configuration, then quit it completely before running the installer.
 
 ```sh
+git clone https://github.com/Insthic/pear-dark-theme.git
+cd pear-dark-theme
 python3 install.py
 ```
 
-On Windows, with Python installed:
+You can also download and extract the [ZIP](https://github.com/Insthic/pear-dark-theme/archive/refs/heads/main.zip). On Windows, use `py install.py`.
 
-```powershell
-py install.py
-```
+Reopen Pear after installation.
 
-You can check the destination before installing:
+### Installer options
+
+Check the destination without making changes:
 
 ```sh
 python3 install.py --dry-run
 ```
 
-If Pear uses a different location, specify the directory containing its config.json:
+Use a custom profile directory:
 
 ```sh
-python3 install.py --config-dir "/path/to/profile/YouTube Music"
+python3 install.py --config-dir "/path/to/YouTube Music"
 ```
 
-The installer copies the CSS files, generates local paths, and preserves the other settings in your profile. It disables Album Color Theme, Ambient Mode, Blur Navigation Bar, Visualizer, and Synced Lyrics to provide a consistent appearance and use YouTube Music's native lyrics. On Linux, it enables In-App Menu to integrate the menu and remove the separate title bar.
+The installer backs up your configuration and registers the CSS files. It disables Album Color Theme, Ambient Mode, Blur Navigation Bar, Visualizer, and Synced Lyrics. On Linux, it enables In-App Menu and hides the separate title bar. Other profile settings are preserved.
 
-If you have already imported CSS files named `pear-dark.css` or `progress-bar.css`, the installer replaces their entries in the theme list with this package's files. Other themes remain registered and may affect the appearance.
+Existing theme entries named `pear-dark.css` or `progress-bar.css` are replaced. Unrelated themes stay enabled and may override these styles.
 
 ## Compatibility
 
-Visually tested with Pear Desktop 3.12.0 on Linux, at window widths of 936 and 1920 px. Windows and macOS have not been tested; they retain Pear's menu behavior, and the three-dot menu integration applies only on Linux.
+Tested with Pear Desktop 3.12.0 on Linux. Windows and macOS are untested; menu integration is Linux-only.
 
-The progress bar styling targets YouTube Music's newer miniplayer. Accounts using a different layout may need adjustments. Changes to YouTube Music may require updates to the theme's selectors.
+The seek bar styles target YouTube Music's newer miniplayer. Changes to YouTube Music may require selector updates.
 
-Pear applies CSS after the page loads, so its original appearance may briefly be visible at startup. This package does not change that loading behavior or add crossfade or AutoMix.
+## Uninstall
 
-## Undoing the installation
+Close Pear and restore `config.json` from the latest backup under `pear-dark-backups` in your profile directory. Then reopen Pear.
 
-The installer saves a **local** backup under `pear-dark-backups` in the profile directory. With Pear closed, restore the backup's config.json over your profile's config.json, then reopen Pear. If you replaced an earlier version of this package, its theme directory is also backed up.
+## License
 
-Do not upload these backups to the repository: they contain your personal configuration.
-
-## Public files
-
-- `themes/pear-dark.css`: appearance and menu integration on Linux.
-- `themes/progress-bar.css`: larger progress bar.
-- `install.py`: installer with no external dependencies or network connections.
-- `PRIVACY.md`: package scope and excluded data.
-
-This project is not affiliated with Pear Desktop, YouTube, Google, Spotify, or Tidal.
+[MIT](LICENSE). See [PRIVACY.md](PRIVACY.md) for details about local configuration and backups.
