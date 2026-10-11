@@ -168,8 +168,10 @@ ytmusic-player-page #side-panel #tab-renderer {
   box-sizing: border-box;
   padding: 16px 20px !important;
 }
-ytmusic-player #song-image > yt-img-shadow {
-  border-radius: 14px !important;
+ytmusic-player #song-image,
+ytmusic-player #song-image > yt-img-shadow,
+ytmusic-player #song-image img {
+  border-radius: 4px !important;
   overflow: hidden;
   box-shadow: 0 20px 64px rgba(0, 0, 0, 0.5);
 }
