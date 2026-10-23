@@ -12,3 +12,6 @@ Cookies*
 *.png
 *.jpg
 .DS_Store
+
+# Public theme previews used in the README.
+!docs/screenshots/*.png

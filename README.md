@@ -7,6 +7,18 @@ A dark theme for [Pear Desktop](https://github.com/pear-devs/pear-desktop).
 - Larger seek bar with an always-visible thumb
 - Three-dot app menu in the YouTube Music header on Linux
 
+## Screenshots
+
+Home screen with dark backgrounds and rounded artwork:
+
+![Pear Dark Theme home screen](docs/screenshots/home.png)
+
+Player and queue:
+
+![Pear Dark Theme player and queue](docs/screenshots/player.png)
+
+Captured on Linux with Pear Desktop 3.12.0, without signing in.
+
 ## Install
 
 Requires Python 3 and an existing Pear installation. Open Pear once to create its configuration, then quit it completely before running the installer.
