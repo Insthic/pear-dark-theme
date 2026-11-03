@@ -3,21 +3,24 @@
 A dark theme for [Pear Desktop](https://github.com/pear-devs/pear-desktop).
 
 - Uniform dark backgrounds and rounded artwork
+- Rounded navigation outlines and pill-shaped category filters
+- Inter typography, with Noto Sans and system sans-serif fallbacks
 - More space around the queue and lyrics
-- Larger seek bar with an always-visible thumb
+- Larger seek bar with an always-visible thumb, aligned with the player
+- Volume popup stays above the seek bar
 - Three-dot app menu in the YouTube Music header on Linux
 
 ## Screenshots
 
-Home screen with dark backgrounds and rounded artwork:
+Home screen with rounded navigation, category filters, and Inter typography:
 
 ![Pear Dark Theme home screen](docs/screenshots/home.png)
 
-Player and queue:
+Player and queue with the seek bar aligned to the player:
 
 ![Pear Dark Theme player and queue](docs/screenshots/player.png)
 
-Captured on Linux with Pear Desktop 3.12.0, without signing in.
+Captured on Linux with Pear Desktop 3.12.0. Account details are hidden.
 
 ## Install
 
@@ -32,6 +35,10 @@ python3 install.py
 You can also download and extract the [ZIP](https://github.com/Insthic/pear-dark-theme/archive/refs/heads/main.zip). On Windows, use `py install.py`.
 
 Reopen Pear after installation.
+
+For the typography shown in the screenshots, install Inter locally. The theme falls back to Noto Sans or the system sans-serif font when Inter is unavailable; it does not download fonts.
+
+To update an existing installation, download or pull the latest theme, quit Pear completely, run `python3 install.py` again, and reopen Pear.
 
 ### Installer options
 

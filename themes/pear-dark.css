@@ -2,6 +2,7 @@
 :root,
 html,
 ytmusic-app {
+  --pear-font: "Inter", "Noto Sans", sans-serif;
   --pear-bg: #101114;
   --pear-panel: #181a20;
   --pear-raised: #23262e;
@@ -27,8 +28,15 @@ body,
 ytmusic-app {
   background: var(--pear-bg) !important;
   color: var(--pear-text) !important;
-  font-family: "Noto Sans", sans-serif !important;
+  font-family: var(--pear-font) !important;
   -webkit-font-smoothing: antialiased;
+}
+/* YouTube Music sets font families on individual text components. */
+ytmusic-app :is(yt-formatted-string, yt-attributed-string, tp-yt-paper-item,
+  button, input, textarea, h1, h2, h3, h4, p, a),
+ytmusic-miniplayer [class*="TrackInfo"],
+ytmusic-miniplayer [class*="TimeInfo"] {
+  font-family: var(--pear-font) !important;
 }
 ytmusic-app-layout #nav-bar-background,
 ytmusic-nav-bar {
@@ -150,10 +158,39 @@ ytmusic-guide-entry-renderer tp-yt-paper-item {
 }
 ytmusic-guide-entry-renderer[active] tp-yt-paper-item {
   background: var(--pear-raised) !important;
-  box-shadow: inset 3px 0 var(--pear-accent);
+  box-shadow: inset 0 0 0 1.5px var(--pear-accent);
 }
 ytmusic-guide-entry-renderer:hover tp-yt-paper-item {
   background: rgba(255, 255, 255, 0.06) !important;
+}
+/* Rounded category filters with a distinct selected state. */
+ytmusic-chip-cloud-chip-renderer:not([chip-style="STYLE_TRANSPARENT"]) a {
+  height: 36px !important;
+  border-radius: 999px !important;
+  background: var(--pear-panel) !important;
+  color: var(--pear-muted) !important;
+  box-shadow: inset 0 0 0 1px var(--pear-border);
+  font-weight: 500 !important;
+  transition: background-color 140ms ease, color 140ms ease, box-shadow 140ms ease;
+}
+ytmusic-chip-cloud-chip-renderer:not([chip-style="STYLE_TRANSPARENT"]) a:hover {
+  background: var(--pear-raised) !important;
+  color: var(--pear-text) !important;
+  box-shadow: inset 0 0 0 1px rgba(166, 200, 255, 0.35);
+}
+ytmusic-chip-cloud-chip-renderer:not([chip-style="STYLE_TRANSPARENT"])[is-selected] a {
+  background: rgba(166, 200, 255, 0.14) !important;
+  color: var(--pear-accent) !important;
+  box-shadow: inset 0 0 0 1px var(--pear-accent);
+}
+ytmusic-chip-cloud-chip-renderer a:focus-visible {
+  outline: 2px solid var(--pear-accent) !important;
+  outline-offset: 2px !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  ytmusic-chip-cloud-chip-renderer a {
+    transition: none !important;
+  }
 }
 ytmusic-player-page {
   background: radial-gradient(ellipse at 35% 35%, #20242e 0%, #101114 70%) !important;

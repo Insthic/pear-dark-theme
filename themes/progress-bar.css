@@ -1,10 +1,11 @@
 /* Larger seek bar for the YTM miniplayer. Keep the native progress gradient. */
 ytmusic-miniplayer .ytMusicMiniPlayerProgressBarWrapper {
+  /* Center the enlarged seek target on the player's top edge. */
+  transform: translateY(-50%) !important;
   height: 28px !important;
   padding: 0 !important;
   display: flex !important;
   align-items: center !important;
-  z-index: 20 !important;
 }
 
 ytmusic-miniplayer input.ytMusicMiniPlayerProgressBar {
