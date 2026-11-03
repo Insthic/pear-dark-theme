@@ -16,11 +16,7 @@ Home screen with rounded navigation, category filters, and Inter typography:
 
 ![Pear Dark Theme home screen](docs/screenshots/home.png)
 
-Player and queue with the seek bar aligned to the player:
-
 ![Pear Dark Theme player and queue](docs/screenshots/player.png)
-
-Captured on Linux with Pear Desktop 3.12.0. Account details are hidden.
 
 ## Install
 
