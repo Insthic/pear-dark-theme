@@ -12,7 +12,6 @@ A dark theme for [Pear Desktop](https://github.com/pear-devs/pear-desktop).
 
 ## Screenshots
 
-Home screen with rounded navigation, category filters, and Inter typography:
 
 ![Pear Dark Theme home screen](docs/screenshots/home.png)
 
